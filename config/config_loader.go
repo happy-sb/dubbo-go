@@ -192,6 +192,7 @@ func loadProviderConfig() {
 	if err := configCenterRefreshProvider(); err != nil {
 		logger.Errorf("[provider config center refresh] %#v", err)
 	}
+	// 检查注册中心配置如果没有配置采用：default > providerConfig.Registry
 	checkRegistries(providerConfig.Registries, providerConfig.Registry)
 
 	for key, svs := range providerConfig.Services {
